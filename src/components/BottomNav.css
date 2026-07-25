@@ -1,0 +1,193 @@
+/* =========================================
+   BOTTOM NAVBAR
+========================================= */
+
+.bottom-nav {
+  position: fixed;
+
+  left: 50%;
+  bottom: 16px;
+
+  transform: translateX(-50%);
+
+  width: calc(100% - 30px);
+  max-width: 620px;
+
+  height: 82px;
+
+  background: #ffffff;
+
+  border-radius: 28px;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  align-items: center;
+
+  padding: 0 10px;
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.14);
+
+  z-index: 9999;
+}
+
+
+/* =========================================
+   NAV ITEM
+========================================= */
+
+.bottom-nav-item {
+  position: relative;
+
+  height: 82px;
+
+  border: none;
+
+  background: transparent;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 5px;
+
+  color: #aab2ba;
+
+  cursor: pointer;
+
+  font-size: 12px;
+
+  padding: 0;
+
+  transition: 0.2s ease;
+}
+
+
+/* =========================================
+   ICON
+========================================= */
+
+.bottom-nav-icon {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 24px;
+
+  filter: grayscale(1);
+
+  opacity: 0.6;
+}
+
+
+/* =========================================
+   ACTIVE ITEM
+========================================= */
+
+.bottom-nav-item.active {
+  color: #e53935;
+}
+
+
+/* =========================================
+   ACTIVE ICON CIRCLE
+========================================= */
+
+.bottom-nav-item.active .bottom-nav-icon {
+  position: absolute;
+
+  top: -24px;
+
+  width: 62px;
+  height: 62px;
+
+  background: white;
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 27px;
+
+  filter: none;
+
+  opacity: 1;
+
+  box-shadow:
+    0 -2px 12px rgba(0, 0, 0, 0.06);
+
+  border-bottom:
+    5px solid #f2b5b5;
+}
+
+
+/* =========================================
+   ACTIVE TEXT
+========================================= */
+
+.bottom-nav-item.active span {
+  color: #e53935;
+
+  margin-top: 35px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+
+  .bottom-nav {
+    width: calc(100% - 20px);
+
+    bottom: 10px;
+
+    height: 76px;
+
+    border-radius: 25px;
+  }
+
+
+  .bottom-nav-item {
+    height: 76px;
+
+    font-size: 11px;
+  }
+
+
+  .bottom-nav-icon {
+    font-size: 22px;
+  }
+
+
+  .bottom-nav-item.active .bottom-nav-icon {
+    width: 58px;
+    height: 58px;
+
+    top: -21px;
+
+    font-size: 25px;
+  }
+
+
+  .bottom-nav-item.active span {
+    margin-top: 32px;
+  }
+
+}

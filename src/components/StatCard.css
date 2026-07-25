@@ -1,0 +1,64 @@
+.stats-grid{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+
+}
+
+
+.stat-box{
+
+background:white;
+padding:20px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+}
+
+
+.stat-box h2{
+
+font-size:35px;
+margin:0 0 10px;
+
+}
+
+
+.stat-box h3{
+
+font-size:24px;
+margin:5px 0;
+
+}
+
+
+.stat-box p{
+
+color:#777;
+
+}
+
+
+.water-btns{
+
+display:flex;
+justify-content:center;
+gap:10px;
+margin-top:15px;
+
+}
+
+
+.water-btns button{
+
+width:35px;
+height:35px;
+border:none;
+border-radius:50%;
+background:#111;
+color:white;
+font-size:20px;
+
+}

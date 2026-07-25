@@ -1,0 +1,22 @@
+.home{
+
+    width:100%;
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:20px;
+
+    padding-bottom:40px;
+
+}
+
+@media(max-width:768px){
+
+.home{
+
+padding:15px;
+
+}
+
+}

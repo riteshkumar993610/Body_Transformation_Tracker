@@ -1,0 +1,411 @@
+* {
+  box-sizing: border-box;
+}
+
+.home-container {
+  width: 100%;
+  min-height: 100vh;
+  background: #f8fcfc;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #18304a;
+}
+
+
+
+
+.date-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.date-center {
+  text-align: center;
+}
+
+.month-name {
+  display: block;
+  font-size: 15px;
+  color: #6d7d88;
+}
+
+.date-center h2 {
+  margin: 3px 0;
+  font-size: 28px;
+}
+
+.day-name {
+  font-size: 14px;
+  color: #78858d;
+}
+
+.date-arrow {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  font-size: 28px;
+  color: #263f55;
+  cursor: pointer;
+}
+
+
+/* ================= CALORIE ================= */
+
+.calorie-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 22px;
+}
+
+.calorie-circle {
+  width: 205px;
+  height: 205px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: rotate(-90deg);
+}
+
+.circle-inner {
+  width: 165px;
+  height: 165px;
+
+  background: #f8fcfc;
+
+  border-radius: 50%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  transform: rotate(90deg);
+}
+
+.circle-inner h1 {
+  margin: 0;
+  font-size: 39px;
+  color: #102f4c;
+}
+
+.circle-inner span {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #7a8790;
+}
+
+.side-calorie {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  min-width: 65px;
+}
+
+.side-calorie span {
+  color: #77858d;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.side-calorie strong {
+  font-size: 21px;
+  color: #183c5c;
+}
+
+
+/* ================= BURNED ================= */
+
+.burned-box {
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
+
+  padding: 12px 18px;
+
+  border-radius: 14px;
+  background: white;
+
+  display: flex;
+  justify-content: space-between;
+
+  box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+
+  font-size: 14px;
+}
+
+.burned-box strong {
+  color: #80bd14;
+}
+
+
+/* ================= MACROS ================= */
+
+.macro-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+
+  max-width: 600px;
+  margin: 25px auto;
+}
+
+.macro-item {
+  background: white;
+  padding: 12px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+.macro-title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.macro-title span {
+  color: #697982;
+}
+
+.macro-title b {
+  color: #183c5c;
+}
+
+.macro-bar {
+  width: 100%;
+  height: 7px;
+
+  background: #e4eeee;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+
+  margin: 8px 0 5px;
+}
+
+.macro-fill {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.carbs-fill {
+  background: #66d6aa;
+}
+
+.protein-fill {
+  background: #b58be9;
+}
+
+.fat-fill {
+  background: #ffca6b;
+}
+
+.macro-item small {
+  color: #7d8b92;
+  font-size: 11px;
+}
+
+
+/* =====================================================
+   TODAY'S MEALS
+===================================================== */
+
+.meal-section {
+  width: 100%;
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.meal-section > h2 {
+  font-size: 20px;
+  color: #18304a;
+
+  margin: 0 0 16px 2px;
+}
+
+
+/* =====================================================
+   2 x 2 MEAL GRID
+===================================================== */
+
+.meal-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 14px;
+}
+
+
+/* =====================================================
+   MEAL CARD
+===================================================== */
+
+.meal-card {
+  min-height: 125px;
+
+  background: white;
+
+  border-radius: 18px;
+
+  padding: 16px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  position: relative;
+
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.06);
+
+  border: 1px solid #f0f3f4;
+}
+
+
+/* =====================================================
+   MEAL ICON
+===================================================== */
+
+.meal-icon {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 14px;
+
+  background: #f1f8e9;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 25px;
+
+  margin-bottom: 10px;
+}
+
+
+/* =====================================================
+   MEAL INFORMATION
+===================================================== */
+
+.meal-info {
+  padding-right: 40px;
+}
+
+.meal-info h3 {
+  margin: 0 0 4px;
+
+  font-size: 15px;
+
+  color: #173750;
+}
+
+.meal-info p {
+  margin: 0;
+
+  font-size: 13px;
+
+  color: #7b878e;
+}
+
+
+/* =====================================================
+   PLUS BUTTON
+===================================================== */
+
+.add-food {
+  position: absolute;
+
+  right: 14px;
+  bottom: 14px;
+
+  width: 35px;
+  height: 35px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #8bd316;
+
+  color: white;
+
+  font-size: 23px;
+
+  line-height: 35px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: transform 0.2s ease;
+}
+
+.add-food:hover {
+  transform: scale(1.08);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 500px) {
+
+  .meal-grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+  }
+
+  .meal-card {
+    min-height: 115px;
+
+    padding: 13px;
+  }
+
+  .meal-icon {
+    width: 43px;
+    height: 43px;
+
+    font-size: 22px;
+  }
+
+  .meal-info h3 {
+    font-size: 14px;
+  }
+
+  .meal-info p {
+    font-size: 12px;
+  }
+
+  .add-food {
+    width: 32px;
+    height: 32px;
+
+    right: 10px;
+    bottom: 10px;
+
+    font-size: 20px;
+  }
+
+}
