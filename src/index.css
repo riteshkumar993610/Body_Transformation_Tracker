@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+
+.app-layout {
+  min-height: 100vh;
+}
+
+.app-content {
+  padding-bottom: 98px;
+  box-sizing: border-box;
+}

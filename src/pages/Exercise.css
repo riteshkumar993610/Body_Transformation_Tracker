@@ -1,240 +1,678 @@
+/* ================================
+   EXERCISE PAGE
+================================ */
+
 .exercise-page {
   min-height: 100vh;
-  padding: 25px;
-  background: #f5f7fb;
+  padding: 32px;
+  background:
+    radial-gradient(circle at top left, rgba(99, 102, 241, 0.08), transparent 30%),
+    #d8e0f1;
   font-family: Arial, sans-serif;
+  color: #172033;
+  box-sizing: border-box;
+}
+
+.exercise-page * {
+  box-sizing: border-box;
 }
 
 
-.exercise-page h1 {
+/* ================================
+   PAGE HEADER
+================================ */
+
+.exercise-page > h1 {
+  margin: 0 0 28px;
   text-align: center;
-  color: #222;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+  color: #111827;
 }
 
 
+/* ================================
+   COMMON CARD
+================================ */
 
-/* Month Section */
-
-.month-box {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-  box-shadow: 0 3px 10px #ddd;
-}
-
-
-.month-box select {
-
-  padding: 10px;
-  width: 150px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-
-}
-
-
-
-.dates {
-
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 15px;
-
-}
-
-
-.dates button {
-
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: none;
-  background: #e5e7eb;
-  cursor: pointer;
-  font-weight: bold;
-
-}
-
-
-
-.dates button:hover {
-
-  background: #4f46e5;
-  color:white;
-
-}
-
-
-
-.dates .active {
-
-  background:#2563eb;
-  color:white;
-
-}
-
-
-
-
-/* Target */
-
+.month-box,
 .target-box,
 .add-box,
 .list,
 .result {
-
-  background:white;
-  padding:20px;
-  border-radius:15px;
-  margin-top:20px;
-  box-shadow:0 3px 10px #ddd;
-
+  width: 100%;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #e8ebf2;
+  border-radius: 20px;
+  padding: 24px;
+  margin-top: 20px;
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.06),
+    0 2px 8px rgba(15, 23, 42, 0.03);
 }
 
 
+/* ================================
+   MONTH / DATE SECTION
+================================ */
 
-input {
+.month-box {
+  margin-top: 0;
+}
 
-  padding:12px;
-  border-radius:8px;
-  border:1px solid #ccc;
-  margin:8px;
-  font-size:16px;
+.month-box select {
+  width: 180px;
+}
 
+.month-box::before {
+  content: "📅 Select Date";
+  display: block;
+  margin-bottom: 14px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
 }
 
 
+/* ================================
+   SELECT
+================================ */
 
-button {
+.exercise-page select {
+  height: 48px;
+  padding: 0 42px 0 15px;
+  border-radius: 12px;
+  border: 1px solid #dfe3eb;
+  background-color: #fff;
+  color: #1f2937;
+  font-size: 15px;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  transition: 0.2s ease;
 
-  padding:10px 18px;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
+  appearance: none;
 
+  background-image:
+    linear-gradient(45deg, transparent 50%, #64748b 50%),
+    linear-gradient(135deg, #64748b 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 20px,
+    calc(100% - 13px) 20px;
+  background-size:
+    5px 5px,
+    5px 5px;
+  background-repeat: no-repeat;
+}
+
+.exercise-page select:hover {
+  border-color: #a5b4fc;
+}
+
+.exercise-page select:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
 }
 
 
+/* ================================
+   DATE BUTTONS
+================================ */
+
+.dates {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(42px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+  max-width: 100%;
+}
+
+.dates button {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  justify-self: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  border: 1px solid #e2e5eb;
+
+  background: #f8fafc;
+  color: #475569;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.dates button:hover {
+  transform: translateY(-2px);
+  background: #eef2ff;
+  border-color: #c7d2fe;
+  color: #4f46e5;
+}
+
+.dates button.active {
+  background: linear-gradient(135deg, #4f46e5, #2563eb);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 7px 16px rgba(37, 99, 235, 0.28);
+  transform: translateY(-1px);
+}
+
+
+/* ================================
+   CURRENT DATE TITLE
+================================ */
+
+.exercise-page > h2 {
+  margin: 26px 0 0;
+  padding-left: 4px;
+
+  font-size: 22px;
+  font-weight: 800;
+  color: #111827;
+}
+
+
+/* ================================
+   TARGET BOX
+================================ */
+
+.target-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.target-box h3 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.target-box input {
+  width: 150px;
+}
+
+
+/* ================================
+   INPUT
+================================ */
+
+.exercise-page input {
+  height: 48px;
+  padding: 0 15px;
+
+  border: 1px solid #dfe3eb;
+  border-radius: 12px;
+
+  background: #fff;
+  color: #111827;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  outline: none;
+  transition: 0.2s ease;
+}
+
+.exercise-page input::placeholder {
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.exercise-page input:hover {
+  border-color: #c7d2fe;
+}
+
+.exercise-page input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+
+/* Remove number arrows */
+
+.exercise-page input[type="number"]::-webkit-inner-spin-button,
+.exercise-page input[type="number"]::-webkit-outer-spin-button {
+  opacity: 0.7;
+}
+
+
+/* ================================
+   KCAL TEXT
+================================ */
+
+.target-box span {
+  margin-left: -12px;
+  margin-right: auto;
+
+  color: #64748b;
+  font-weight: 700;
+}
+
+
+/* ================================
+   ADD EXERCISE
+================================ */
+
+.add-box h3,
+.list h3 {
+  margin: 0 0 18px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.add-box {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(239, 246, 255, 0.8),
+      rgba(255, 255, 255, 1)
+    );
+}
+
+.add-box select {
+  width: 230px;
+  margin-right: 8px;
+}
+
+.add-box input {
+  width: 160px;
+  margin-right: 8px;
+}
 
 .add-box button {
+  height: 48px;
+  padding: 0 24px;
 
-  background:#16a34a;
-  color:white;
-  font-size:16px;
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  color: #fff;
 
+  font-size: 15px;
+  font-weight: 700;
+
+  border-radius: 12px;
+
+  box-shadow: 0 7px 15px rgba(22, 163, 74, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
-
 
 .add-box button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(22, 163, 74, 0.25);
+}
 
-  background:#15803d;
-
+.add-box button:active {
+  transform: translateY(0);
 }
 
 
+/* ================================
+   EXERCISE LIST
+================================ */
+
+.list {
+  min-height: 150px;
+}
+
+.list h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.list h3::before {
+  content: "🏋️";
+}
 
 
-/* Exercise Card */
-
+/* ================================
+   EXERCISE CARD
+================================ */
 
 .exercise-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  gap: 20px;
 
-  background:#eef2ff;
+  padding: 17px 18px;
+  margin-top: 12px;
 
-  padding:15px;
+  background: linear-gradient(
+    135deg,
+    #f5f7ff,
+    #eef2ff
+  );
 
-  border-radius:12px;
+  border: 1px solid #e0e7ff;
+  border-radius: 16px;
 
-  margin-top:10px;
-
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
+.exercise-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.08);
+}
 
+.exercise-card > div {
+  flex: 1;
+}
+
+.exercise-card h4 {
+  margin: 0 0 8px;
+
+  font-size: 17px;
+  font-weight: 800;
+  color: #1e293b;
+}
 
 .exercise-card p {
+  display: inline-block;
 
-  margin:0;
-  font-weight:bold;
+  margin: 0 16px 0 0;
 
+  font-size: 14px;
+  font-weight: 600;
+  color: #64748b;
 }
 
 
+/* ================================
+   DELETE BUTTON
+================================ */
+
+.delete-btn {
+  flex-shrink: 0;
+
+  padding: 10px 15px;
+
+  background: #fff1f2;
+  color: #dc2626;
+
+  border: 1px solid #fecdd3;
+  border-radius: 10px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+  transform: translateY(-1px);
+}
 
 
-/* Result */
-
+/* ================================
+   RESULT
+================================ */
 
 .result {
+  position: relative;
+  overflow: hidden;
 
-  text-align:center;
+  text-align: center;
 
+  padding: 28px 20px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(37, 99, 235, 0.08),
+      transparent 40%
+    ),
+    #fff;
 }
 
+.result::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  background: linear-gradient(
+    90deg,
+    #4f46e5,
+    #2563eb
+  );
+}
 
 .result h2 {
+  margin: 0;
 
-  color:#2563eb;
-
+  font-size: 26px;
+  font-weight: 800;
+  color: #2563eb;
 }
 
 
+/* ================================
+   RESULT STATUS
+================================ */
 
-/* Mobile Responsive */
+.result h3 {
+  margin: 14px 0 0;
 
-@media(max-width:600px){
+  font-size: 17px;
+  font-weight: 800;
+}
 
+.result .extra {
+  color: #16a34a;
+}
 
-.exercise-page{
-
-padding:15px;
-
+.result .remaining {
+  color: #f59e0b;
 }
 
 
-.exercise-card{
+/* ================================
+   EMPTY LIST
+================================ */
 
-flex-direction:column;
-gap:5px;
-
+.list:has(.exercise-card) {
+  min-height: auto;
 }
 
 
-.dates button{
+/* ================================
+   TABLET
+================================ */
 
-width:35px;
-height:35px;
+@media (max-width: 768px) {
 
+  .exercise-page {
+    padding: 22px;
+  }
+
+  .exercise-page > h1 {
+    font-size: 30px;
+  }
+
+  .target-box {
+    flex-wrap: wrap;
+  }
+
+  .target-box input {
+    width: 180px;
+  }
+
+  .add-box select,
+  .add-box input {
+    width: calc(50% - 10px);
+    margin: 5px;
+  }
+
+  .add-box button {
+    width: calc(100% - 10px);
+    margin: 5px;
+  }
+
+  .dates {
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+  }
 }
 
 
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+  .exercise-page {
+    padding: 14px;
+  }
+
+  .exercise-page > h1 {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  .month-box,
+  .target-box,
+  .add-box,
+  .list,
+  .result {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .month-box select {
+    width: 100%;
+    margin: 0;
+  }
+
+  .dates {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 7px;
+  }
+
+  .dates button {
+    width: 36px;
+    height: 36px;
+
+    font-size: 12px;
+  }
+
+  .exercise-page > h2 {
+    font-size: 19px;
+    margin-top: 20px;
+  }
+
+  .target-box {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .target-box input {
+    width: 100%;
+    margin: 0;
+  }
+
+  .target-box span {
+    margin: -6px 0 0;
+  }
+
+  .add-box select,
+  .add-box input {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .add-box button {
+    width: 100%;
+    margin: 8px 0 0;
+  }
+
+  .exercise-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .exercise-card p {
+    display: block;
+    margin: 5px 0;
+  }
+
+  .delete-btn {
+    width: 100%;
+  }
+
+  .result h2 {
+    font-size: 21px;
+  }
+
+  .result h3 {
+    font-size: 15px;
+  }
 }
-select{
 
-padding:12px;
-border-radius:8px;
-border:1px solid #ccc;
-font-size:16px;
-margin:8px;
 
-}
+/* ================================
+   SMALL PHONES
+================================ */
 
-.delete-btn{
-  background:#ef4444;
-  color:white;
-  border:none;
-  padding:10px 15px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:bold;
-}
+@media (max-width: 380px) {
 
-.delete-btn:hover{
-  background:#dc2626;
+  .exercise-page {
+    padding: 10px;
+  }
+
+  .month-box,
+  .target-box,
+  .add-box,
+  .list,
+  .result {
+    padding: 15px;
+  }
+
+  .dates {
+    gap: 5px;
+  }
+
+  .dates button {
+    width: 32px;
+    height: 32px;
+  }
+
+  .exercise-page > h1 {
+    font-size: 23px;
+  }
 }

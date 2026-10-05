@@ -13,12 +13,16 @@ import Profile from "./pages/Profile";
 import BottomNav from "./components/BottomNav";
 
 
+
 function Layout() {
   return (
-    <>
-      <Outlet />
+    <div className="app-layout">
+      <main className="app-content">
+        <Outlet />
+      </main>
+
       <BottomNav />
-    </>
+    </div>
   );
 }
 

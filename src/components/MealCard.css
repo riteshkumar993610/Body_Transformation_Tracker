@@ -1,70 +1,180 @@
-.meal-card{
+.meal-card {
+  width: 280px;
+  min-height: 145px;
+  padding: 20px;
 
-background:white;
-padding:20px;
-border-radius:18px;
-width:280px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  background: #9d3e3e;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
 
+  /* Very subtle neumorphism */
+  box-shadow:
+    6px 6px 16px rgba(0, 0, 0, 0.07),
+    -4px -4px 12px rgba(255, 255, 255, 0.9);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.meal-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    8px 10px 22px rgba(0, 0, 0, 0.09),
+    -4px -4px 14px rgba(255, 255, 255, 0.95);
 }
 
 
-.meal-top{
+/* =========================
+   TOP SECTION
+========================= */
 
-display:flex;
-align-items:center;
-gap:15px;
-
+.meal-top {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 
-.meal-top h2{
+/* =========================
+   ICON
+========================= */
 
-font-size:35px;
-margin:0;
+.meal-icon {
+  width: 54px;
+  height: 54px;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  background: #f7f7f7;
+  border-radius: 16px;
+
+  font-size: 28px;
+
+  box-shadow:
+    inset 2px 2px 5px rgba(0, 0, 0, 0.04),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.9);
 }
 
 
-.meal-top h3{
+/* =========================
+   MEAL INFO
+========================= */
 
-margin:0;
-font-size:20px;
+.meal-info {
+  min-width: 0;
+}
 
+.meal-info h3 {
+  margin: 0;
+
+  color: #171717;
+
+  font-size: 19px;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.meal-info p {
+  margin: 6px 0 0;
+
+  color: #858585;
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.meal-info p span {
+  color: #333333;
+  font-size: 16px;
+  font-weight: 650;
 }
 
 
-.meal-top p{
+/* =========================
+   BUTTON
+========================= */
 
-margin-top:5px;
-color:#777;
-font-size:16px;
+.meal-link {
+  display: block;
+  text-decoration: none;
+}
 
+.meal-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 11px 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #111111;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.meal-btn:hover {
+  background: #222222;
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.meal-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 
+/* =========================
+   PLUS ICON
+========================= */
 
-.meal-btn{
-
-margin-top:20px;
-width:100%;
-padding:10px;
-
-border:none;
-border-radius:10px;
-
-background:#111;
-color:white;
-
-cursor:pointer;
-
-font-size:15px;
-
+.plus-icon {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
 }
 
 
-.meal-btn:hover{
+/* =========================
+   MOBILE
+========================= */
 
-opacity:0.8;
+@media (max-width: 600px) {
+  .meal-card {
+    width: 100%;
+    min-height: auto;
+    padding: 18px;
+  }
 
+  .meal-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+  }
+
+  .meal-info h3 {
+    font-size: 18px;
+  }
 }

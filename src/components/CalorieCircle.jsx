@@ -29,7 +29,6 @@ function Home() {
   const [editingGoal, setEditingGoal] = useState(false);
   const [newGoal, setNewGoal] = useState(1200);
 
-
   // ==============================
   // LOAD DATA
   // ==============================
@@ -38,6 +37,31 @@ function Home() {
     loadData();
   }, [date]);
 
+  // ==============================
+  // REFRESH WHEN FOOD IS ADDED
+  // ==============================
+
+  useEffect(() => {
+    const handleFoodUpdate = () => {
+      loadData();
+    };
+
+    window.addEventListener(
+      "foodUpdated",
+      handleFoodUpdate
+    );
+
+    return () => {
+      window.removeEventListener(
+        "foodUpdated",
+        handleFoodUpdate
+      );
+    };
+  }, [date]);
+
+  // ==============================
+  // LOAD ALL DATA
+  // ==============================
 
   const loadData = () => {
 
@@ -56,7 +80,6 @@ function Home() {
       setNewGoal(calorieGoal);
     }
 
-
     // ==============================
     // DATE KEY
     // ==============================
@@ -66,7 +89,6 @@ function Home() {
     });
 
     const key = `${month}-${date.getDate()}`;
-
 
     // ==============================
     // FOOD DATA
@@ -80,14 +102,12 @@ function Home() {
     let carb = 0;
     let fats = 0;
 
-
     const mealCalories = {
       Breakfast: 0,
       Lunch: 0,
       Dinner: 0,
       Snack: 0,
     };
-
 
     if (food[key]) {
 
@@ -96,7 +116,6 @@ function Home() {
         if (!Array.isArray(food[key][meal])) {
           return;
         }
-
 
         food[key][meal].forEach((item) => {
 
@@ -112,17 +131,14 @@ function Home() {
           const fatValue =
             Number(item.fat) || 0;
 
-
           kcal += calories;
           pro += proteinValue;
           carb += carbsValue;
           fats += fatValue;
 
-
           const mealName =
             meal.charAt(0).toUpperCase() +
             meal.slice(1);
-
 
           if (
             mealCalories[mealName] !== undefined
@@ -136,7 +152,6 @@ function Home() {
 
     }
 
-
     setConsumed(Math.round(kcal));
 
     setProtein(Math.round(pro));
@@ -145,14 +160,20 @@ function Home() {
 
     setFat(Math.round(fats));
 
-
     setMeals({
-      Breakfast: Math.round(mealCalories.Breakfast),
-      Lunch: Math.round(mealCalories.Lunch),
-      Dinner: Math.round(mealCalories.Dinner),
-      Snack: Math.round(mealCalories.Snack),
+      Breakfast: Math.round(
+        mealCalories.Breakfast
+      ),
+      Lunch: Math.round(
+        mealCalories.Lunch
+      ),
+      Dinner: Math.round(
+        mealCalories.Dinner
+      ),
+      Snack: Math.round(
+        mealCalories.Snack
+      ),
     });
-
 
     // ==============================
     // EXERCISE DATA
@@ -163,9 +184,7 @@ function Home() {
         localStorage.getItem("exerciseData")
       ) || {};
 
-
     let totalBurned = 0;
-
 
     if (
       exercise[key] &&
@@ -181,10 +200,8 @@ function Home() {
 
     }
 
-
     setBurned(Math.round(totalBurned));
   };
-
 
   // ==============================
   // CALORIE CALCULATION
@@ -196,13 +213,11 @@ function Home() {
 
   const amount = Math.abs(difference);
 
-
-  // Circle kabhi 100% se zyada nahi jayega
+  // Circle kabhi 100% se jayda nhi ayega isase 
   const percent =
     goal > 0
       ? Math.min((consumed / goal) * 100, 100)
       : 0;
-
 
   // ==============================
   // SAVE TARGET
@@ -216,27 +231,22 @@ function Home() {
       return;
     }
 
-
     const profile =
       JSON.parse(
         localStorage.getItem("profile")
       ) || {};
 
-
     profile.calorieGoal = value;
-
 
     localStorage.setItem(
       "profile",
       JSON.stringify(profile)
     );
 
-
     setGoal(value);
 
     setEditingGoal(false);
   };
-
 
   // ==============================
   // DATE
@@ -253,7 +263,6 @@ function Home() {
     setDate(newDate);
   };
 
-
   const nextDay = () => {
 
     const newDate = new Date(date);
@@ -265,19 +274,15 @@ function Home() {
     setDate(newDate);
   };
 
-
   const day = date.toLocaleString("en-US", {
     weekday: "short",
   });
-
 
   const month = date.toLocaleString("en-US", {
     month: "long",
   });
 
-
   const dateNumber = date.getDate();
-
 
   // ==============================
   // MEAL CARD
@@ -292,17 +297,17 @@ function Home() {
           {icon}
         </div>
 
-
         <div className="meal-info">
 
-          <h3>{name}</h3>
+          <h3>
+            {name}
+          </h3>
 
           <p>
             {meals[name]} Kcal
           </p>
 
         </div>
-
 
         <button
           className="add-food"
@@ -319,7 +324,6 @@ function Home() {
     );
   };
 
-
   // ==============================
   // RETURN
   // ==============================
@@ -329,7 +333,6 @@ function Home() {
     <div className="home-page">
 
       <div className="home-container">
-
 
         {/* =========================
             DATE
@@ -343,7 +346,6 @@ function Home() {
           >
             ‹
           </button>
-
 
           <div className="date-center">
 
@@ -361,7 +363,6 @@ function Home() {
 
           </div>
 
-
           <button
             className="date-arrow"
             onClick={nextDay}
@@ -371,13 +372,11 @@ function Home() {
 
         </div>
 
-
         {/* =========================
             CALORIE SECTION
         ========================= */}
 
         <div className="calorie-section">
-
 
           {/* CONSUMED */}
 
@@ -392,7 +391,6 @@ function Home() {
             </strong>
 
           </div>
-
 
           {/* CIRCLE */}
 
@@ -428,7 +426,6 @@ function Home() {
 
           </div>
 
-
           {/* TARGET */}
 
           <div className="side-calorie">
@@ -437,13 +434,11 @@ function Home() {
               Target
             </span>
 
-
             <div className="target-value">
 
               <strong>
                 {goal}
               </strong>
-
 
               <button
                 className="edit-goal-btn"
@@ -461,7 +456,6 @@ function Home() {
 
         </div>
 
-
         {/* =========================
             TARGET EDIT BOX
         ========================= */}
@@ -473,7 +467,6 @@ function Home() {
             <h3>
               Set Daily Calorie Target
             </h3>
-
 
             <div className="goal-input-row">
 
@@ -487,13 +480,11 @@ function Home() {
                 autoFocus
               />
 
-
               <span>
                 Kcal
               </span>
 
             </div>
-
 
             <div className="goal-buttons">
 
@@ -505,7 +496,6 @@ function Home() {
               >
                 Cancel
               </button>
-
 
               <button
                 className="save-goal"
@@ -519,7 +509,6 @@ function Home() {
           </div>
 
         )}
-
 
         {/* =========================
             BURNED
@@ -537,13 +526,11 @@ function Home() {
 
         </div>
 
-
         {/* =========================
             MACROS
         ========================= */}
 
         <div className="macro-container">
-
 
           {/* CARBS */}
 
@@ -561,7 +548,6 @@ function Home() {
 
             </div>
 
-
             <div className="macro-bar">
 
               <div
@@ -576,13 +562,11 @@ function Home() {
 
             </div>
 
-
             <small>
               {carbs}/193g
             </small>
 
           </div>
-
 
           {/* PROTEIN */}
 
@@ -600,7 +584,6 @@ function Home() {
 
             </div>
 
-
             <div className="macro-bar">
 
               <div
@@ -615,13 +598,11 @@ function Home() {
 
             </div>
 
-
             <small>
               {protein}/77g
             </small>
 
           </div>
-
 
           {/* FAT */}
 
@@ -639,7 +620,6 @@ function Home() {
 
             </div>
 
-
             <div className="macro-bar">
 
               <div
@@ -654,7 +634,6 @@ function Home() {
 
             </div>
 
-
             <small>
               {fat}/51g
             </small>
@@ -663,159 +642,57 @@ function Home() {
 
         </div>
 
+        {/* =========================
+            TODAY'S MEALS
+        ========================= */}
 
-       {/* =========================
-    TODAY'S MEALS
-========================= */}
+        <div className="meal-section">
 
-<div className="meal-section">
+          <h2>
+            Today's Meals
+          </h2>
 
-  <h2>
-    Today's Meals
-  </h2>
+          <div className="meal-grid">
 
-  <div className="meal-grid">
+            {/* BREAKFAST */}
 
-    {/* BREAKFAST */}
+            <MealCard
+              name="Breakfast"
+              icon="🥪"
+            />
 
-    <MealCard
-      name="Breakfast"
-      icon="🥪"
-    />
+            {/* LUNCH */}
 
+            <MealCard
+              name="Lunch"
+              icon="🍝"
+            />
 
-    {/* LUNCH */}
+            {/* DINNER */}
 
-    <MealCard
-      name="Lunch"
-      icon="🍝"
-    />
+            <MealCard
+              name="Dinner"
+              icon="🥗"
+            />
 
+            {/* SNACK */}
 
-    {/* DINNER */}
+            <MealCard
+              name="Snack"
+              icon="🍪"
+            />
 
-    <MealCard
-      name="Dinner"
-      icon="🥗"
-    />
+          </div>
 
-
-    {/* SNACK */}
-
-    <MealCard
-      name="Snack"
-      icon="🍪"
-    />
-
-  </div>
-
-</div>
+        </div>
 
       </div>
-
 
       {/* =================================================
           BOTTOM NAVIGATION
       ================================================= */}
 
       <nav className="bottom-navigation">
-
-
-        {/* HOME */}
-
-        <button
-          className="nav-item active"
-          onClick={() =>
-            navigate("/")
-          }
-        >
-
-          <div className="nav-icon-circle">
-
-            <span className="nav-emoji">
-              🏠
-            </span>
-
-          </div>
-
-          <span>
-            Home
-          </span>
-
-        </button>
-
-
-        {/* ACTIVITY */}
-
-        <button
-          className="nav-item"
-          onClick={() =>
-            navigate("/activity")
-          }
-        >
-
-          <div className="nav-icon">
-
-            <span className="nav-emoji">
-              📊
-            </span>
-
-          </div>
-
-          <span>
-            Activity
-          </span>
-
-        </button>
-
-
-        {/* FOOD */}
-
-        <button
-          className="nav-item"
-          onClick={() =>
-            navigate("/food")
-          }
-        >
-
-          <div className="nav-icon">
-
-            <span className="nav-emoji">
-              🍎
-            </span>
-
-          </div>
-
-          <span>
-            Food
-          </span>
-
-        </button>
-
-
-        {/* PROFILE */}
-
-        <button
-          className="nav-item"
-          onClick={() =>
-            navigate("/profile")
-          }
-        >
-
-          <div className="nav-icon">
-
-            <span className="nav-emoji">
-              👤
-            </span>
-
-          </div>
-
-          <span>
-            Profile
-          </span>
-
-        </button>
-
 
       </nav>
 
