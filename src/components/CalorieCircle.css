@@ -5,7 +5,7 @@
 .home-container {
   width: 100%;
   min-height: 100vh;
-  background: #dfdaf0;
+  background: #efedf5;
   padding: 20px;
   font-family: Arial, sans-serif;
   color: #18304a;
@@ -203,15 +203,15 @@
 }
 
 .carbs-fill {
-  background: #66d6aa;
+  background: #f50606;
 }
 
 .protein-fill {
-  background: #b58be9;
+  background: #15045b;
 }
 
 .fat-fill {
-  background: #ffca6b;
+  background: #f6f609;
 }
 
 .macro-item small {
@@ -232,7 +232,7 @@
 
 .meal-section > h2 {
   font-size: 20px;
-  color: #18304a;
+  color: #1b3654;
 
   margin: 0 0 16px 2px;
 }
@@ -273,7 +273,7 @@
   box-shadow:
     0 4px 16px rgba(0, 0, 0, 0.06);
 
-  border: 1px solid #f0f3f4;
+  border: 1px solid #99d6ec;
 }
 
 
@@ -287,7 +287,7 @@
 
   border-radius: 14px;
 
-  background: #f1f8e9;
+  background: yellow;
 
   display: flex;
 
@@ -313,7 +313,7 @@
 
   font-size: 15px;
 
-  color: #173750;
+  color: #070d12;
 }
 
 .meal-info p {
@@ -321,7 +321,7 @@
 
   font-size: 13px;
 
-  color: #7b878e;
+  color: #212a2f;
 }
 
 
@@ -342,9 +342,9 @@
 
   border-radius: 50%;
 
-  background: #8bd316;
+  background: #37e215;
 
-  color: white;
+  color: rgb(27, 11, 11);
 
   font-size: 23px;
 
@@ -409,3 +409,6 @@
   }
 
 }
+
+
+

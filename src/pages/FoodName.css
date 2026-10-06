@@ -1,10 +1,5 @@
 
-/* =========================================================
-   FOOD NAME — PROFESSIONAL UI OVERRIDES
-   IMPORTANT: APPEND THIS FILE AFTER YOUR EXISTING FoodName.css
-   It is intentionally an override layer, so your original
-   CSS/data structure is not destroyed.
-   ========================================================= */
+
 
 .food-container,
 .food-container * {
@@ -25,7 +20,7 @@
 }
 
 .food-container button:focus-visible {
-  outline: 3px solid rgba(59, 130, 246, 0.28);
+  outline: 3px solid rgba(13, 29, 55, 0.28);
   outline-offset: 3px;
 }
 
@@ -44,7 +39,7 @@
   background:
     radial-gradient(circle at 85% 20%, rgba(59, 130, 246, 0.15), transparent 30%),
     radial-gradient(circle at 15% 100%, rgba(16, 185, 129, 0.12), transparent 34%),
-    linear-gradient(135deg, #ffffff 0%, #f8fafc 58%, #f1f5f9 100%);
+    linear-gradient(135deg, #ffffff 0%, #55a1ed 58%, #f1f5f9 100%);
   box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
 }
 
@@ -71,7 +66,7 @@
   line-height: 1;
   font-weight: 800;
   letter-spacing: 0.14em;
-  color: #2563eb;
+  color: #163f96;
 }
 
 .food-header-badge {
@@ -87,7 +82,7 @@
   line-height: 0.98;
   letter-spacing: -0.045em;
   font-weight: 850;
-  color: #0f172a;
+  color: #0b101d;
 }
 
 .food-subtitle {
@@ -1470,5 +1465,264 @@
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+
+
+
+/* =========================================================
+   FOOD GRID — RESPONSIVE 2 CARD MOBILE UI
+   ========================================================= */
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 900px) {
+
+  .food-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+  }
+
+  .food-card {
+    padding: 15px;
+  }
+}
+
+
+/* ---------- MOBILE: EXACTLY 2 CARDS ---------- */
+
+@media (max-width: 600px) {
+
+  .food-container {
+    padding:
+      18px
+      10px
+      calc(100px + env(safe-area-inset-bottom));
+  }
+
+  .food-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+  }
+
+  .food-card {
+    min-width: 0;
+    padding: 11px;
+
+    border-radius: 17px;
+
+    box-shadow:
+      0 7px 20px rgba(15, 23, 42, 0.06);
+  }
+
+  /* HEADER */
+
+  .food-card-header {
+    min-height: auto;
+
+    display: block;
+  }
+
+  .food-name-area {
+    gap: 7px;
+  }
+
+  .food-avatar {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 11px;
+
+    font-size: 14px;
+  }
+
+  .food-name {
+    font-size: 11px;
+    line-height: 1.25;
+
+    white-space: normal;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    overflow: hidden;
+  }
+
+  .food-quantity {
+    margin-top: 3px;
+    font-size: 8px;
+  }
+
+  /* CATEGORY + ADD */
+
+  .food-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 5px;
+
+    margin-top: 8px;
+  }
+
+  .food-category {
+    max-width: 65%;
+
+    padding: 4px 6px;
+
+    font-size: 7px;
+  }
+
+  .add-food-card-btn {
+    min-height: 28px !important;
+
+    padding: 0 7px !important;
+
+    border-radius: 8px !important;
+
+    font-size: 9px !important;
+  }
+
+  .add-food-card-btn .add-icon {
+    font-size: 13px;
+  }
+
+  /* CALORIES */
+
+  .calorie-box {
+    margin-top: 9px;
+
+    padding: 10px;
+
+    border-radius: 12px;
+  }
+
+  .calorie-main {
+    gap: 3px;
+  }
+
+  .calorie-main strong {
+    font-size: 20px;
+  }
+
+  .calorie-main span {
+    font-size: 8px;
+  }
+
+  .calorie-box small {
+    font-size: 7px;
+  }
+
+  /* MACROS */
+
+  .macro-container {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+    gap: 4px;
+
+    margin-top: 6px;
+  }
+
+  .macro-box {
+    padding: 7px 3px;
+
+    border-radius: 9px;
+  }
+
+  .macro-icon {
+    margin-bottom: 2px;
+    font-size: 10px;
+  }
+
+  .macro-box strong {
+    font-size: 9px;
+  }
+
+  .macro-box small {
+    font-size: 7px;
+  }
+
+  /* DESCRIPTION */
+
+  .food-description {
+    min-height: 42px;
+
+    margin: 9px 0 9px;
+
+    font-size: 8px;
+    line-height: 1.45;
+
+    -webkit-line-clamp: 3;
+  }
+
+  /* VIEW DETAILS */
+
+  .view-details-btn {
+    min-height: 32px;
+
+    padding: 0 8px;
+
+    border-radius: 8px;
+
+    font-size: 8px;
+  }
+
+  .details-arrow {
+    font-size: 12px;
+  }
+}
+
+
+/* ---------- VERY SMALL PHONES ---------- */
+
+@media (max-width: 370px) {
+
+  .food-grid {
+    gap: 8px;
+  }
+
+  .food-card {
+    padding: 9px;
+    border-radius: 15px;
+  }
+
+  .food-avatar {
+    width: 30px;
+    height: 30px;
+    flex-basis: 30px;
+  }
+
+  .food-name {
+    font-size: 10px;
+  }
+
+  .food-category {
+    font-size: 6.5px;
+  }
+
+  .calorie-main strong {
+    font-size: 18px;
+  }
+
+  .macro-box {
+    padding: 6px 2px;
+  }
+
+  .food-description {
+    font-size: 7.5px;
   }
 }
